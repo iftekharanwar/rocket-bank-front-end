@@ -11,7 +11,7 @@ import LoginForm from '@/components/Login-Form.vue';
 
 <style lang="scss" scoped>
 .sign-in-container, .create-account-container{
-    background-image: url('../src/assets/bluebackground.png');
+    background-image: url('../../public/bluebackground.png');
     min-height: 100vh;
     width: 100%;
     display: flex;
