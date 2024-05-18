@@ -13,7 +13,7 @@ import CreateAccount from '@/components/Create-Account.vue';
 <style lang="scss" scoped>
 .create-account-container{
     color: white;
-    background-image: url('../../public/bluebackground.png');
+    background-image: url('bluebackground.png');
     min-height: 100vh;
     width: 100%;
     display: flex;

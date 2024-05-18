@@ -41,9 +41,6 @@ onMounted(async () => {
   justify-content: center;
   align-items: center;
 
-  background-image: url('../assets/bluebackground.png');
-  background-size: auto;
-
   @media only screen and (min-width: 1600px) {
         border-right: 1px solid white;
     }

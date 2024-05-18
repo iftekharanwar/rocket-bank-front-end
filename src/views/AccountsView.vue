@@ -178,7 +178,6 @@ onMounted(async () => {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  background-image: url('../assets/bluebackground.png');
   z-index: 100;
   position: relative;
 
