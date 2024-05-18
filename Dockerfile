@@ -1,15 +1,14 @@
 FROM node:current-alpine3.19
-VOLUME [ "/rocketbank-dev" ]
-COPY package.json package.json
-COPY jsconfig.json jsconfig.json
-COPY vite.config.js vite.config.js
-COPY vue.config.js vue.config.js
-COPY pnpm-lock.yaml pnpm-lock.yaml
-COPY yarn.lock yarn.lock
-COPY index.js index.js
-COPY var.env .env
+COPY public/** /app/public/
+COPY jsconfig.json /app/jsconfig.json
+COPY package.json /app/package.json
+COPY pnpm-lock.yaml /app/pnpm-lock.yaml
+COPY vite.config.js /app/vie.config.js
+COPY vue.config.js /app/vue.config.js
+COPY proxyurl.env /app/.env
+COPY src/** /app/src/
 RUN apk update
-RUN apk add yarn
-RUN yarn install
+RUN npm install -g pnpm
+RUN cd /app && pnpm install
 EXPOSE 3000
-ENTRYPOINT [ "yarn", "start" ]
+ENTRYPOINT [ "cd","/app","&&", "pnpm", "dev" ]
