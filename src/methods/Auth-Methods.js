@@ -31,16 +31,19 @@ export const signIn = async (username, password) => {
   }
 }
 
-export const signOut = () => {
-  // eslint-disable-next-line no-unused-vars
+export const signOut = async () => {
   try {
     const store = isAuthenticatedStore()
-    fetch(proxyURL + '/signout', {
+    const response = await fetch(proxyURL + '/signout', {
       method: 'GET',
       credentials: 'include'
     })
-    store.isAuthenticated = false
-    sessionStorage.setItem('isAuthenticated', JSON.stringify(store.isAuthenticated))
+    if (response.ok) {
+      store.isAuthenticated = false
+      sessionStorage.setItem('isAuthenticated', JSON.stringify(store.isAuthenticated))
+    } else {
+      throw new Error('Logout failed');
+    }
   } catch (e) {
     console.error(e)
   }
